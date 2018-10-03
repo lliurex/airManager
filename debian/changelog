@@ -1,0 +1,211 @@
+air-manager (0.9.6.7) xenial; urgency=medium
+
+  * Fix wrong text chain
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jun 2018 09:44:16 +0200
+
+air-manager (0.9.6.5) xenial; urgency=medium
+
+  * Fix text domain ManageBox
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jun 2018 09:19:50 +0200
+
+air-manager (0.9.6.4) xenial; urgency=medium
+
+  * More translation fixes...
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jun 2018 08:52:36 +0200
+
+air-manager (0.9.6.3) xenial; urgency=medium
+
+  * When install adobeair set it as configured in zero-center
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jun 2018 08:31:02 +0200
+
+air-manager (0.9.6.2) xenial; urgency=medium
+
+  * Add lost translations
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 15 Jun 2018 08:23:04 +0200
+
+air-manager (0.9.6.1) xenial; urgency=medium
+
+  * Fixed glade translations
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 14 Jun 2018 15:49:46 +0200
+
+air-manager (0.9.6) xenial; urgency=medium
+
+  * Changed banner. 
+  * Fix segmentation fault when uninstalling
+  * Removed postrm
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 14 Jun 2018 13:27:16 +0200
+
+air-manager (0.9.5) xenial; urgency=medium
+
+  * Translations
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 14 Jun 2018 12:38:51 +0200
+
+air-manager (0.9.4) xenial; urgency=medium
+
+  * Update manager icon
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Mon, 11 Jun 2018 10:07:49 +0200
+
+air-manager (0.9.3) xenial; urgency=medium
+
+  * Updated error codes
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 07 Jun 2018 14:54:18 +0200
+
+air-manager (0.9.2) xenial; urgency=medium
+
+  * Fix icon 
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 07 Jun 2018 13:43:09 +0200
+
+air-manager (0.9.1) xenial; urgency=medium
+
+  * Assure that adobe's mime is deleted and our mime is applied (user level)
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 07 Jun 2018 12:51:48 +0200
+
+air-manager (0.9.0) xenial; urgency=medium
+
+  * Improved removal of apps
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 07 Jun 2018 10:37:05 +0200
+
+air-manager (0.1.3.0) xenial; urgency=medium
+
+  * Force default application after installing an air
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 07 Jun 2018 08:34:48 +0200
+
+air-manager (0.1.2.9) xenial; urgency=medium
+
+  * Fix rm 0.1.2.8
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 18:08:28 +0200
+
+air-manager (0.1.2.8) xenial; urgency=medium
+
+  * Remove adobe's mimetype after installing adobeair
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 17:43:01 +0200
+
+air-manager (0.1.2.7) xenial; urgency=medium
+
+  * Updated depends
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 14:39:53 +0200
+
+air-manager (0.1.2.6) xenial; urgency=medium
+
+  * Fix prerm typo
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 14:23:05 +0200
+
+air-manager (0.1.2.5) xenial; urgency=medium
+
+  * Fix diversion
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 14:04:07 +0200
+
+air-manager (0.1.2.4) xenial; urgency=medium
+
+  * Changed mime icon
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 13:40:15 +0200
+
+air-manager (0.1.2.3) xenial; urgency=medium
+
+  * Fix typo in postinst
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 12:58:29 +0200
+
+air-manager (0.1.2.2) xenial; urgency=medium
+
+  * Add diversion for adobeair mime file
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 12:36:38 +0200
+
+air-manager (0.1.2.1) xenial; urgency=medium
+
+  * fix mime file location
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 12:05:31 +0200
+
+air-manager (0.1.2.0) xenial; urgency=medium
+
+  * fixed postrm
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 09:13:32 +0200
+
+air-manager (0.1.1.9) xenial; urgency=medium
+
+  * Added icon for mimetype
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 06 Jun 2018 08:49:32 +0200
+
+air-manager (0.1.1.8) xenial; urgency=medium
+
+  * Fix desktop-mime (again) 
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 17:29:41 +0200
+
+air-manager (0.1.1.7) xenial; urgency=medium
+
+  * Fix air-image desktop typo
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 16:55:59 +0200
+
+air-manager (0.1.1.6) xenial; urgency=medium
+
+  * Fix desktop-mime
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 16:02:33 +0200
+
+air-manager (0.1.1.5) xenial; urgency=medium
+
+  * Changed air-installer.postinstall
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 13:56:58 +0200
+
+air-manager (0.1.1.4) xenial; urgency=medium
+
+  * Minor bugfix for bionic
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 12:55:34 +0200
+
+air-manager (0.1.1.3) xenial; urgency=medium
+
+  * Fix air-installer metainfo
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 10:14:43 +0200
+
+air-manager (0.1.1.2) xenial; urgency=medium
+
+  * Fix css font properties
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 09:43:30 +0200
+
+air-manager (0.1.1.1) xenial; urgency=medium
+
+  * Fix depends
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 09:22:05 +0200
+
+air-manager (0.1.1) xenial; urgency=medium
+
+  * Fix launchpad build
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 05 Jun 2018 09:05:24 +0200
+
+air-manager (0.1) xenial; urgency=medium
+
+  * Initial release.
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 31 May 2018 14:54:06 +0200
