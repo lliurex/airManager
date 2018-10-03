@@ -25,6 +25,6 @@ Description: Needed for install/manage air packages
 
 Package: python3-air-manager
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends},openjdk-8-jre
+Depends: ${misc:Depends}, ${python3:Depends}
 Description: Libs for air-installer and air-manager
 
