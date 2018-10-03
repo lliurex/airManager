@@ -99,7 +99,7 @@ class ManageBox(Gtk.ScrolledWindow):
 			btn_remove.props.expand=False
 			btn_remove.props.halign=Gtk.Align.END
 			btn_remove.set_name("BTN_REMOVE")
-			btn_run.set_tooltip(_("Remove application %s")%app_name)
+			btn_remove.set_tooltip(_("Remove application %s")%app_name)
 			btn_remove.connect('clicked',self._remove_air,data)
 			img_exe=Gtk.Image.new_from_file(img_run)
 			btn_run=Gtk.Button()
