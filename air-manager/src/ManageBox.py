@@ -82,7 +82,7 @@ class ManageBox(Gtk.ScrolledWindow):
 				self.listbox.remove(child)
 		for app,data in self.airinstaller.get_installed_apps().items():
 			count+=1
-			app_name=os.path.basename(data['desktop'])
+			app_name=os.path.basename(data['desktop']).replace('.desktop','')
 #			listrow=Gtk.Box(spacing=12,hexpand=True)
 			listrow=Gtk.Grid(row_spacing=6,hexpand=True,column_spacing=12)
 			listrow.set_margin_left(12)
