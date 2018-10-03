@@ -82,6 +82,7 @@ class ManageBox(Gtk.ScrolledWindow):
 				self.listbox.remove(child)
 		for app,data in self.airinstaller.get_installed_apps().items():
 			count+=1
+			app_name=os.path.basename(data['desktop'])
 #			listrow=Gtk.Box(spacing=12,hexpand=True)
 			listrow=Gtk.Grid(row_spacing=6,hexpand=True,column_spacing=12)
 			listrow.set_margin_left(12)
@@ -98,6 +99,7 @@ class ManageBox(Gtk.ScrolledWindow):
 			btn_remove.props.expand=False
 			btn_remove.props.halign=Gtk.Align.END
 			btn_remove.set_name("BTN_REMOVE")
+			btn_run.set_tooltip(_("Remove application %s")%app_name)
 			btn_remove.connect('clicked',self._remove_air,data)
 			img_exe=Gtk.Image.new_from_file(img_run)
 			btn_run=Gtk.Button()
@@ -105,6 +107,7 @@ class ManageBox(Gtk.ScrolledWindow):
 			btn_run.props.expand=True
 			btn_run.props.halign=Gtk.Align.END
 			btn_run.set_name("BTN_RUN")
+			btn_run.set_tooltip(_("Run application %s")%app_name)
 			btn_run.connect('clicked',self._run_air,data)
 			info_box=Gtk.Box(spacing=12,hexpand=True)
 			info_box.add(label)
