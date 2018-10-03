@@ -35,6 +35,7 @@ class confirmDialog(Gtk.Window):
 		file_name=os.path.basename(air_file)
 		Gtk.Window.__init__(self,title=_("Install air app"))
 		self.set_position(Gtk.WindowPosition.CENTER)
+		self.set_resizable(False)
 		style_provider=Gtk.CssProvider()
 		css=b"""
 		#label #label_install{
