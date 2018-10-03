@@ -1,3 +1,9 @@
+air-manager (1.0) bionic; urgency=medium
+
+  * Bionic release
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 03 Oct 2018 14:29:14 +0200
+
 air-manager (0.9.6.7) xenial; urgency=medium
 
   * Fix wrong text chain
