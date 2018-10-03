@@ -7,40 +7,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 08:22+0200\n"
-"PO-Revision-Date: 2018-06-15 08:22+0200\n"
+"POT-Creation-Date: 2018-10-03 14:22+0200\n"
+"PO-Revision-Date: 2018-10-03 14:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../air-installer/src/air_installer.py:36
 msgid "Install air app"
 msgstr "Instalar air"
 
-#: ../air-installer/src/air_installer.py:79
+#: ../air-installer/src/air_installer.py:80
 #, python-format
 msgid "Install <b>%s</b>"
 msgstr "Instalar <b>%s</b>"
 
-#: ../air-installer/src/air_installer.py:102
+#: ../air-installer/src/air_installer.py:103
 #, python-format
 msgid "<b>Select icon</b> for %s"
 msgstr "<b>Seleccionar el icono</b> de %s"
 
-#: ../air-installer/src/air_installer.py:148
+#: ../air-installer/src/air_installer.py:149
 msgid "Select icon"
 msgstr "Seleccionar icono"
 
-#: ../air-installer/src/air_installer.py:154
+#: ../air-installer/src/air_installer.py:155
 msgid "images"
 msgstr "imágenes"
 
-#: ../air-installer/src/air_installer.py:206
+#: ../air-installer/src/air_installer.py:207
 #, python-format
 msgid "Package <b>%s</b> succesfully installed"
 msgstr "¡Paquete <b>%s</b> instalado!"

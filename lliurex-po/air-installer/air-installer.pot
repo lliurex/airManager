@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 08:50+0200\n"
+"POT-Creation-Date: 2018-10-03 14:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,25 +21,25 @@ msgstr ""
 msgid "Install air app"
 msgstr ""
 
-#: ../air-installer/src/air_installer.py:79
+#: ../air-installer/src/air_installer.py:80
 #, python-format
 msgid "Install <b>%s</b>"
 msgstr ""
 
-#: ../air-installer/src/air_installer.py:102
+#: ../air-installer/src/air_installer.py:103
 #, python-format
 msgid "<b>Select icon</b> for %s"
 msgstr ""
 
-#: ../air-installer/src/air_installer.py:148
+#: ../air-installer/src/air_installer.py:149
 msgid "Select icon"
 msgstr ""
 
-#: ../air-installer/src/air_installer.py:154
+#: ../air-installer/src/air_installer.py:155
 msgid "images"
 msgstr ""
 
-#: ../air-installer/src/air_installer.py:206
+#: ../air-installer/src/air_installer.py:207
 #, python-format
 msgid "Package <b>%s</b> succesfully installed"
 msgstr ""
