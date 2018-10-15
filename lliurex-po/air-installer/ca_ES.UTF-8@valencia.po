@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Pilar Embid Giner <embid_mar@gva.es>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-15 08:22+0200\n"
+"PO-Revision-Date: 2018-06-15 13:34+0200\n"
+"Last-Translator: Pilar Embid Giner <embid_mar@gva.es>\n"
+"Language-Team: LliureX\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: ../air-installer/src/air_installer.py:36
+msgid "Install air app"
+msgstr "Instal·la l'Air"
+
+#: ../air-installer/src/air_installer.py:79
+#, python-format
+msgid "Install <b>%s</b>"
+msgstr "Instal·la <b>%s</b>"
+
+#: ../air-installer/src/air_installer.py:102
+#, python-format
+msgid "<b>Select icon</b> for %s"
+msgstr "<b>Seleccioneu la icona</b> de %s"
+
+#: ../air-installer/src/air_installer.py:148
+msgid "Select icon"
+msgstr "Seleccioneu la icona"
+
+#: ../air-installer/src/air_installer.py:154
+msgid "images"
+msgstr "imatges"
+
+#: ../air-installer/src/air_installer.py:206
+#, python-format
+msgid "Package <b>%s</b> succesfully installed"
+msgstr "El paquet <b>%s</b> s'ha instal·lat correctament."
