@@ -30,7 +30,7 @@
 
     #WINDOW{
 		
-		background-color: #f1f1f1;
+		background: #f1f1f1;
 		
 	}
 
@@ -41,22 +41,22 @@
 
 	#BTN_REMOVE{
 		border:0px;
-		background-color:red;
+		background:red;
 	}
 
 	#BTN_REMOVE:hover{
 		border:0px;
-		background-color:#FF5555;
+		background:#FF5555;
 	}
 
 	#BTN_RUN{
 		border:0px;
-		background-color:blue;
+		background:blue;
 	}
 
 	#BTN_RUN:hover{
 		border:0px;
-		background-color:#0065ff;
+		background:#0065ff;
 	}
 
 	#LIST_SEPARATOR{
@@ -69,12 +69,12 @@
 	}	
 	
 	#LIST_ROW:hover,#LIST_ROW:active {
-		background-color: black;
+		background: black;
 		font: 16px Roboto Bold;
 	}	
 
 	#SPINNER {
 		border: solid black 10px;
-		background-color:black;
+		background:black;
 		margin:10px;
 	}
