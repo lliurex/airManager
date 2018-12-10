@@ -1,3 +1,9 @@
+air-manager (1.0.2) xenial; urgency=medium
+
+  * Fix css background color
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Mon, 10 Dec 2018 10:02:43 +0100
+
 air-manager (1.0.1) bionic; urgency=medium
 
   * Add translations
