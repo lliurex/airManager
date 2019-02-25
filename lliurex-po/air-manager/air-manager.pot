@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 08:50+0200\n"
+"POT-Creation-Date: 2019-02-25 14:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,6 +75,16 @@ msgstr ""
 msgid "Error: Unknown"
 msgstr ""
 
-#: ../air-manager/src/ManageBox.py:38
+#: ../air-manager/src/ManageBox.py:42
 msgid "Removing file..."
+msgstr ""
+
+#: ../air-manager/src/ManageBox.py:102
+#, python-format
+msgid "Remove %s"
+msgstr ""
+
+#: ../air-manager/src/ManageBox.py:110
+#, python-format
+msgid "Run %s"
 msgstr ""
