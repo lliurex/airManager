@@ -33,12 +33,24 @@ if sys.argv[1]=='install':
 		err=1
 	os.remove(iconFile)
 elif sys.argv[1]=='remove':
-	_debug("Removing %s %s"%(sys.argv[2],sys.argv[3]))
-	air_pkg={'desktop':sys.argv[3],'air_id':sys.argv[2]}
-	err=installer.remove_air_app(air_pkg)
-	try:
-		subprocess.check_call(['gtk-update-icon-cache','/usr/share/icons/hicolor/'])
-	except:
+	airFile=sys.argv[2]
+	air_pkg={}
+	if (len(sys.argv))==4:
+		deskFile=sys.argv[3]
+		air_pkg={'desktop':deskFile,'air_id':airFile}
+	else:
+		for app,data in installer.get_installed_apps().items():
+			if airFile.replace(".air","")==app:
+				air_pkg=data
+			break
+	if air_pkg:
+		_debug("Removing %s %s"%(air_pkg['air_id'],air_pkg['desktop']))
+		err=installer.remove_air_app(air_pkg)
+		try:
+			subprocess.check_call(['gtk-update-icon-cache','/usr/share/icons/hicolor/'])
+		except:
+			err=1
+	else:
 		err=1
 
 exit(err)
