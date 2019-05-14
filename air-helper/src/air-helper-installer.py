@@ -3,6 +3,7 @@ import  airmanager.airmanager as installer
 import sys
 import subprocess
 import tempfile
+import os
 
 installer=installer.AirManager()
 err=0
