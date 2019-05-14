@@ -10,6 +10,8 @@ import tempfile
 import zipfile
 import urllib.request as url
 import glob
+import json
+import re
 from gi.repository import GdkPixbuf
 
 LOG='/tmp/air_manager.log'
@@ -21,6 +23,9 @@ class AirManager():
 		self.adobeair_folder="/opt/AdobeAirApp/"
 		self.adobeairsdk_folder="/opt/adobe-air-sdk/"
 		self.adobeair_pkgname="adobeair"
+		self.confDir="/usr/share/air-manager/config.d"
+		self.rebuild=False
+		self.pkgConfig={}
 	#def __init__
 
 	def _debug(self,msg):
@@ -40,6 +45,7 @@ class AirManager():
 
 	def install(self,air_file,icon=None):
 		sw_err=0
+		self.rebuild=False
 		sw_install_sdk=False
 		self._check_adobeair()
 		if not icon:
@@ -49,8 +55,11 @@ class AirManager():
 		if self._check_file_is_air(air_file):
 			basedir_name=file_name.replace(".air","")
 			self._debug("Installing %s"%air_file)
+			config=self._chk_config_file(air_file)
+			if 'preinstall' in config.keys():
+				air_file=self._recompile_for_preinstall(air_file,config['preinstall'])
 			sw_err=self._install_air_package(air_file)
-			if sw_err:
+			if sw_err and not self.rebuild:
 				self._debug("Trying rebuild...")
 				modified_air_file=self._recompile_for_certificate_issue(air_file)
 				self._debug("Installing %s"%modified_air_file)
@@ -61,22 +70,31 @@ class AirManager():
 				sw_err=self._install_air_package_sdk(air_file,icon)
 				sw_install_sdk=True
 
+			sw_desktop=True
+			if 'generate-desktop' in config.keys():
+				sw_desktop=config['generate-desktop']
+
 			if not sw_err and sw_install_sdk:
 				#Copy icon to hicolor
-				sw_installed=self._generate_desktop(file_name)
-				if sw_installed:
-					hicolor_icon='/usr/share/icons/hicolor/48x48/apps/%s.png'%basedir_name
-					shutil.copyfile (icon,hicolor_icon)
-					self._debug("Installed in %s"%(basedir_name))
-				else:
-					self._debug("%s Not Installed!!!"%(basedir_name))
+				if sw_desktop:
+					sw_installed=self._generate_desktop(file_name)
+					if sw_installed:
+						hicolor_icon='/usr/share/icons/hicolor/48x48/apps/%s.png'%basedir_name
+						shutil.copyfile (icon,hicolor_icon)
+						self._debug("Installed in %s"%(basedir_name))
+					else:
+						self._debug("%s Not Installed!!!"%(basedir_name))
 #			elif not sw_err and icon!=self.default_icon:
-			elif not sw_err:
+			elif not sw_err and sw_desktop:
 				#Modify desktop with icon
 				hicolor_icon='/usr/share/icons/hicolor/48x48/apps/%s.png'%basedir_name
 				shutil.copyfile (icon,hicolor_icon)
 				icon_new=os.path.basename(hicolor_icon)
 				self._modify_desktop(air_file,icon_name=icon_new)
+		
+			if 'postinst' in config.keys() and not sw_err:
+				self._execute_postinstall(config['postinst'])
+
 		#Remove adobeair mime association
 		time.sleep(1)
 		my_env=os.environ.copy()
@@ -90,6 +108,95 @@ class AirManager():
 		a=subprocess.check_output(["xdg-mime","default","/usr/share/applications/air-installer.desktop","/usr/share/mime/packages/x-air-installer.xml"],input=b"",env=my_env)
 		self._debug("Default result: %s"%a)
 	#def install
+
+	def _chk_config_file(self,air_file):
+		pkgConfig={}
+		airName=os.path.basename(air_file).replace(".air","")
+		self._debug("Name: %s"%airName)
+		if os.path.isdir(self.confDir):
+			for conf in glob.glob("%s/*"%self.confDir):
+				if os.path.basename(conf).replace(".json","").lower() in airName.lower():
+					self._debug("Conf file: %s"%conf)
+				try:
+					with open(conf,'r') as f:
+						pkgConfig=json.load(f)
+				except Exception as e:
+					self._debug("Error reading %s"%conf)
+					self._debug("Reason: %s"%e)
+		return(pkgConfig)
+
+	def _recompile_for_preinstall(self,air_file,conf):
+		self._debug("Modifying package %s"%air_file)
+		sw_ok=True
+		new_air_file=air_file
+		tmpdir=self._unzip_air_file(air_file)
+		cwd=os.getcwd()
+		os.chdir(tmpdir)
+		for targetFile,values in conf.items():
+			self._debug("Searching for %s"%targetFile)
+			if os.path.isfile(targetFile):
+				self._debug("File: %s"%targetFile)
+				f=open(targetFile,'r')
+				fcontents=f.readlines()
+				f.close()
+				newContents=[]
+				for line in fcontents:
+					for regTarget,regReplace in values.items():
+						if re.search(regTarget,line):
+							line=re.sub(regTarget,regReplace,line)
+						newContents.append(line)
+				f=open(targetFile,'w')
+				f.writelines(newContents)
+				f.close()
+
+		for xml_file in os.listdir("META-INF/AIR"):
+			if xml_file.endswith(".xml"):
+				air_xml=xml_file
+				break
+		if air_xml:
+			shutil.move("META-INF/AIR/"+air_xml,air_xml)
+			shutil.rmtree("META-INF/",ignore_errors=True)
+			os.remove("mimetype")
+			self._debug("Generating new cert")
+			subprocess.call(["/opt/adobe-air-sdk/bin/adt","-certificate","-cn","lliurex","2048-RSA","lliurex.p12","lliurex"])
+			new_air_file=os.path.basename(air_file)
+			my_env=os.environ.copy()
+			my_env["DISPLAY"]=":0"
+			try:
+				subprocess.check_output(["/opt/adobe-air-sdk/bin/adt","-package","-tsa","none","-storetype","pkcs12","-keystore","lliurex.p12",new_air_file,air_xml,"."],input=b"lliurex",env=my_env)
+				new_air_file="%s/%s"%(tmpdir,new_air_file)
+			except Exception as e:
+				self._debug(e)
+		os.chdir(cwd)
+		self.rebuild=True
+		return (new_air_file)
+	#def _recompile_for_certificate_issue
+
+	def _execute_postinstall(self,conf):
+		self._debug("Postinstall %s"%conf)
+		sw_ok=True
+		for targetFile,values in conf.items():
+			self._debug("Searching for %s"%targetFile)
+			if os.path.isfile(targetFile):
+				self._debug("File: %s"%targetFile)
+				f=open(targetFile,'r')
+				fcontents=f.readlines()
+				f.close()
+				newContents=[]
+				for line in fcontents:
+					deleteKey=""
+					for regTarget,regReplace in values.items():
+						if regTarget=='--append':
+							newContents.extend(regReplace)
+							deleteKey=regTarget
+						else:
+							line=re.sub(regTarget,regReplace,line)
+						newContents.append(line)
+					if deleteKey:
+						values.pop(deleteKey,None)
+				f=open(targetFile,'w')
+				f.writelines(newContents)
+				f.close()
 
 	def _modify_desktop(self,air_file,icon_name=None):
 		self._debug("Modify desktop %s"%air_file)
@@ -192,8 +299,9 @@ class AirManager():
 		if sw_err==0:
 			try:
 				shutil.copyfile (air_file,wrkdir+"/"+file_name)
-			except:
+			except Exception as e:
 				sw_err=1
+				self._debug("SDK Install Fail: %s"%e)
 		#Copy icon to hicolor
 		if sw_err==0:
 			hicolor_icon='/usr/share/icons/hicolor/48x48/apps/%s.png'%basedir_name
@@ -204,7 +312,7 @@ class AirManager():
 
 		self._generate_desktop_sdk(file_name)
 		self._debug("Installed in %s/%s"%(wrkdir,air_file))
-		return sw_err
+		return (sw_err)
 	#def _install_air_package_sdk
 
 	def _generate_desktop(self,file_name):
@@ -400,6 +508,7 @@ Categories=Application;Education;Development;ComputerScience;\n\
 		os.chdir(cwd)
 		return tmpdir+'/'+new_air_file
 	#def _recompile_for_certificate_issue
+	
 
 	def _unzip_air_file(self,air_file):
 		cwd=os.getcwd()
