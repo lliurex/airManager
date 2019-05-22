@@ -1,3 +1,9 @@
+air-manager (1.2) bionic; urgency=medium
+
+  * Change python library to force utf8
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 22 May 2019 16:04:21 +0200
+
 air-manager (1.1) bionic; urgency=medium
 
   * Helper extracts icon from air package if there's no icon parm
