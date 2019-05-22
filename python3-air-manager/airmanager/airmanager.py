@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import stat
 import datetime
@@ -179,9 +181,8 @@ class AirManager():
 			self._debug("Searching for %s"%targetFile)
 			if os.path.isfile(targetFile):
 				self._debug("File: %s"%targetFile)
-				f=open(targetFile,'r')
-				fcontents=f.readlines()
-				f.close()
+				with open(targetFile,'r') as f:
+					fcontents=f.readlines()
 				newContents=[]
 				for line in fcontents:
 					deleteKey=""
