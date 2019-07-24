@@ -20,7 +20,7 @@ LOG='/tmp/air_manager.log'
 
 class AirManager():
 	def __init__(self):
-		self.dbg=True
+		self.dbg=False
 		self.default_icon="/usr/share/air-installer/rsrc/air-installer_icon.png"
 		self.adobeair_folder="/opt/AdobeAirApp/"
 		self.adobeairsdk_folder="/opt/adobe-air-sdk/"
@@ -37,9 +37,12 @@ class AirManager():
 	#def _debug
 
 	def _log(self,msg):
-		f=open(LOG,'a')
-		f.write("%s"%msg)
-		f.close()
+		try:
+			f=open(LOG,'a')
+			f.write("%s"%msg)
+			f.close()
+		except:
+			print("Can't write log")
 	#def _log
 
 	def set_default_icon(self,icon):
