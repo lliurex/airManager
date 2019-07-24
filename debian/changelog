@@ -1,3 +1,9 @@
+air-manager (1.2.1) bionic; urgency=medium
+
+  * Disable debug mode
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 24 Jul 2019 14:11:13 +0200
+
 air-manager (1.2) bionic; urgency=medium
 
   * Change python library to force utf8
