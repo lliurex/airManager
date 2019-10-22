@@ -1,3 +1,9 @@
+air-manager (1.3) bionic; urgency=medium
+
+  * Fix Adobe Air Installer compatibility with recent versions of dpkg-deb
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 22 Oct 2019 11:28:31 +0200
+
 air-manager (1.2.1) bionic; urgency=medium
 
   * Disable debug mode
