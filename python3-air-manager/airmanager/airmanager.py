@@ -273,6 +273,7 @@ class AirManager():
 	def _install_air_package(self,air_file):
 		sw_err=1
 		my_env=os.environ.copy()
+		my_env["PATH"]="/usr/share/air-manager/bin:%s"%my_env["PATH"]
 		my_env["DISPLAY"]=":0"
 		try:
 			subprocess.check_output(["/usr/bin/Adobe AIR Application Installer","-silent","-eulaAccepted","-location","/opt/AdobeAirApp",air_file],env=my_env)
@@ -440,7 +441,7 @@ Categories=Application;Education;Development;ComputerScience;\n\
 			st=os.stat(tmpfile_name)
 			os.chmod(tmpfile_name,st.st_mode | 0o111)
 #			subprocess.call([tmpfile_name,"-silent","-eulaAccepted","-pingbackAllowed"])
-			os.system("DISPLAY=:0 " + tmpfile_name + " -silent -eulaAccepted -pingbackAllowed")
+			os.system("DISPLAY=:0 LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu " + tmpfile_name + " -silent -eulaAccepted -pingbackAllowed")
 			os.remove(tmpfile_name)
 			#Remove symlinks
 			if os.path.isfile("/usr/lib/libgnome-keyring.so.0"):
