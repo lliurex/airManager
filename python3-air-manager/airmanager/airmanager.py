@@ -122,12 +122,12 @@ class AirManager():
 			for conf in glob.glob("%s/*"%self.confDir):
 				if os.path.basename(conf).replace(".json","").lower() in airName.lower():
 					self._debug("Conf file: %s"%conf)
-				try:
-					with open(conf,'r') as f:
-						pkgConfig=json.load(f)
-				except Exception as e:
-					self._debug("Error reading %s"%conf)
-					self._debug("Reason: %s"%e)
+					try:
+						with open(conf,'r') as f:
+							pkgConfig=json.load(f)
+					except Exception as e:
+						self._debug("Error reading %s"%conf)
+						self._debug("Reason: %s"%e)
 		return(pkgConfig)
 
 	def _recompile_for_preinstall(self,air_file,conf):
@@ -273,7 +273,8 @@ class AirManager():
 	def _install_air_package(self,air_file):
 		sw_err=1
 		my_env=os.environ.copy()
-		my_env["PATH"]="/usr/share/air-manager/bin:%s"%my_env["PATH"]
+		my_env["PATH"]="/usr/share/air-installer/src/bin:%s"%my_env["PATH"]
+		self._debug("PATH: %s"%my_env)
 		my_env["DISPLAY"]=":0"
 		try:
 			subprocess.check_output(["/usr/bin/Adobe AIR Application Installer","-silent","-eulaAccepted","-location","/opt/AdobeAirApp",air_file],env=my_env)
