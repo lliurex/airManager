@@ -1,14 +1,14 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
-MimeType=application/vnd.debian.binary-package
+MimeType=application/x-air-installer
 Actions=installPackage
 
 [Desktop Action installPackage]
-Name=Install package
-Name[ca_ES.UTF-8@valencia]=Instal·lar paquet
-Name[ca_ES@valencia]=Instal·lar paquet
-Name[ca]=Instal·lar paquet
-Name[es]=Instalar paquete
-Exec=pkexec /usr/bin/epi-package-installer.py %u
-Icon=epi-gtk
+Name=Install air application
+Name[ca_ES.UTF-8@valencia]=Instal·lar aplicació Air
+Name[ca_ES@valencia]=Instal·lar aplicació Air
+Name[ca]=Instal·lar aplicació Air
+Name[es]=Instalar aplicación Air
+Exec=/usr/bin/air-installer %u
+Icon=air-installer
