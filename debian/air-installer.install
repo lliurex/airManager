@@ -1,1 +1,2 @@
 air-installer/* /usr/share/air-installer
+services/* /usr/share/kservices5/ServiceMenus/

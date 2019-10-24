@@ -1,3 +1,9 @@
+air-manager (1.3+nmu1) bionic; urgency=medium
+
+  * Add service for dolphin
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 24 Oct 2019 13:29:16 +0200
+
 air-manager (1.3) bionic; urgency=medium
 
   * Fix Adobe Air Installer compatibility with recent versions of dpkg-deb
