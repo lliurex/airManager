@@ -22,6 +22,9 @@ then
 	DEBIAN=$(readlink $fakeDEBIAN)
 	rm -fr $fakeDEBIAN
 	cp -vr $DEBIAN $fakeDEBIAN >>$OUTLOG
+	cd $FIRST/DEBIAN
+	sed -i '/Pre-Depends.*/d' control 2>>$ERRLOG
+	cd $OLDPWD
 fi
 
 $DPKG $@ 2>>$ERRLOG
