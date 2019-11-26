@@ -428,7 +428,8 @@ Categories=Application;Education;Development;ComputerScience;\n\
 	def _install_adobeair(self):
 		if self._install_adobeair_depends():
 			self._debug("Installing Adobe Air")
-			adobeair_url="http://airdownload.adobe.com/air/lin/download/2.6/AdobeAIRInstaller.bin"
+#			adobeair_url="http://airdownload.adobe.com/air/lin/download/2.6/AdobeAIRInstaller.bin"
+			adobeair_url="http://airdownload.adobe.com/air/lin/download/2.6/adobeair.deb"
 			req=url.Request(adobeair_url,headers={'User-Agent':'Mozilla/5.0'})
 			try:
 				adobeair_file=url.urlopen(req)
@@ -442,7 +443,8 @@ Categories=Application;Education;Development;ComputerScience;\n\
 			st=os.stat(tmpfile_name)
 			os.chmod(tmpfile_name,st.st_mode | 0o111)
 #			subprocess.call([tmpfile_name,"-silent","-eulaAccepted","-pingbackAllowed"])
-			os.system("DISPLAY=:0 LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu " + tmpfile_name + " -silent -eulaAccepted -pingbackAllowed")
+#			os.system("DISPLAY=:0 LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu " + tmpfile_name + " -silent -eulaAccepted -pingbackAllowed")
+			os.system("dpkg -i %s"%tmpfile_name)
 			os.remove(tmpfile_name)
 			#Remove symlinks
 			if os.path.isfile("/usr/lib/libgnome-keyring.so.0"):
