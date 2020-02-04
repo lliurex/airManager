@@ -167,7 +167,10 @@ class manager(confStack):
 
 	def _removeAir(self,widget):
 		subprocess.check_call(['/usr/bin/xhost','+'])
-		sw_remove_err=subprocess.check_call(['pkexec','/usr/bin/air-helper-installer.py','remove',widget.getName(),widget.getDesktop()])
+		try:
+			subprocess.check_call(['pkexec','/usr/bin/air-helper-installer.py','remove',widget.getName(),widget.getDesktop()])
+		except  Exception as e:
+			print(e)
 		subprocess.check_call(['/usr/bin/xhost','-'])
 
 
