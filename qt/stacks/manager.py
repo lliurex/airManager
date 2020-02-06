@@ -119,11 +119,12 @@ class manager(confStack):
 		self.airinstaller=installer.AirManager()	
 		self.menu=App2Menu.app2menu()
 		self.setStyleSheet(self._setCss())
+		self.widget=''
 	#def __init__
 	
 	def _load_screen(self):
 		box=QVBoxLayout()
-		self.lst_airApps=QTableWidget(1,1)
+		self.lst_airApps=QTableWidget(0,1)
 		self.lst_airApps.setShowGrid(False)
 		self.lst_airApps.horizontalHeader().hide()
 		self.lst_airApps.verticalHeader().hide()
@@ -146,6 +147,7 @@ class manager(confStack):
 				self.lst_airApps.setCellWidget(cont,0,airCell)
 				self.lst_airApps.resizeRowToContents(cont)
 				cont+=1
+		self.lst_airApps.removeRow(cont)
 		self.lst_airApps.resizeColumnsToContents()
 		return True
 	#def _udpate_screen
@@ -155,24 +157,35 @@ class manager(confStack):
 		if airApp:
 			desktop=self.menu.get_desktop_info(airApp.get('desktop',''))
 			name=desktop.get('Name','')
-			widget=airWidget()
-			widget.setDesktop(airApp.get('desktop'))
-			widget.remove.connect(self._removeAir)
-			widget.setName(name)
-			icon=desktop.get('Icon','')
-			widget.setIcon(icon)
-			comment=desktop.get('Comment','')
-			widget.setDesc(comment)
+			if name:
+				widget=airWidget()
+				widget.setDesktop(airApp.get('desktop'))
+				widget.remove.connect(self._removeAir)
+				widget.setName(name)
+				icon=desktop.get('Icon','')
+				widget.setIcon(icon)
+				comment=desktop.get('Comment','')
+				widget.setDesc(comment)
 		return widget
+	#def _paintCell
 
-	def _removeAir(self,widget):
+	def writeConfig(self):
+		if self.widget=='':
+			return
 		subprocess.check_call(['/usr/bin/xhost','+'])
 		try:
-			subprocess.check_call(['pkexec','/usr/bin/air-helper-installer.py','remove',widget.getName(),widget.getDesktop()])
+			subprocess.check_call(['pkexec','/usr/bin/air-helper-installer.py','remove',self.widget.getName(),self.widget.getDesktop()])
 		except  Exception as e:
 			print(e)
 		subprocess.check_call(['/usr/bin/xhost','-'])
+		self.showMsg(_("App %s uninstalled"%self.widget.getName()))
+		self.updateScreen()
+	#def writeConfig
 
+	def _removeAir(self,widget):
+		self.widget=widget
+		self.writeConfig()
+	#def _removeAir
 
 	def _setCss(self):
 		css="""
