@@ -16,6 +16,7 @@ _ = gettext.gettext
 
 class airWidget(QWidget):
 	remove=pyqtSignal("PyQt_PyObject")
+	execute=pyqtSignal("PyQt_PyObject")
 	def __init__(self,parent=None):
 		super (airWidget,self).__init__(parent)
 		self.desktop=''
@@ -27,6 +28,7 @@ class airWidget(QWidget):
 		self.btn_icon.setGraphicsEffect(effect)
 		self.btn_icon.setIconSize(QSize(64,64))
 		self.btn_icon.setMinimumHeight(72)
+		self.btn_icon.clicked.connect(self._executeAir)
 		box.addWidget(self.btn_icon,0,0,2,1,Qt.AlignLeft)
 		self.lbl_name=QLabel("")
 		self.lbl_name.setObjectName("appName")
@@ -77,9 +79,18 @@ class airWidget(QWidget):
 	
 	def getIcon(self):
 		return(self.lbl_desc.text())
+	
+	def setExe(self,exe):
+		self.exe=exe.replace("'","")
+	#def setExe
 
 	def _removeAir(self):
 		self.remove.emit(self)
+
+	def _executeAir(self):
+		exe=["kioclient5","exec",self.desktop]
+		self.pid=subprocess.Popen(exe,stdin=None,stdout=None,stderr=None,shell=False)
+	#def _executeAir(self):
 
 	def _setCss(self):
 		css="""
@@ -147,8 +158,16 @@ class manager(confStack):
 				self.lst_airApps.setCellWidget(cont,0,airCell)
 				self.lst_airApps.resizeRowToContents(cont)
 				cont+=1
+		if cont==0:
+			self.lst_airApps.insertRow(0)
+			lbl=QLabel(_("There's no app installed"))
+			lbl.setStyleSheet("background:silver;border:0px;margin:0px")
+			self.lst_airApps.setCellWidget(0,0,lbl)
+			cont+=1
+
 		self.lst_airApps.removeRow(cont)
 		self.lst_airApps.resizeColumnsToContents()
+
 		return True
 	#def _udpate_screen
 
@@ -166,6 +185,8 @@ class manager(confStack):
 				widget.setIcon(icon)
 				comment=desktop.get('Comment','')
 				widget.setDesc(comment)
+				execute=desktop.get('Exec','')
+				widget.setExe(execute)
 		return widget
 	#def _paintCell
 

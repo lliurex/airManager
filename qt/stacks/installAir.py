@@ -40,7 +40,7 @@ class installAir(confStack):
 				self.inp_file.setText(fchoosed)
 				self.updateScreen()
 		box=QGridLayout()
-		box.addWidget(QLabel(_("Air file")),0,0,1,1,Qt.AlignTop)
+		box.addWidget(QLabel(_("Air file")),0,0,1,1,Qt.AlignBottom)
 		self.inp_file=QLineEdit()
 		self.inp_file.setPlaceholderText(_("Choose file for install"))
 		box.addWidget(self.inp_file,1,0,1,1,Qt.AlignTop)
