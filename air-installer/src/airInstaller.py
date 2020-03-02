@@ -139,7 +139,7 @@ def _generate_epi_script(airInfo,air):
 #			if not retCode:
 
 			f.write("\t\techo %s\n"%air)
-			f.write("\t\t/usr/bin/air-helper-installer.py install %s %s\n"%(air,"null"))
+			f.write("\t\tpkexec /usr/bin/air-helper-installer.py install %s %s\n"%(air,"null"))
 #			else:
 #				f.write("\t\tRES=1\"\"\n")
 			f.write("\t\techo \"$?\"\n")
