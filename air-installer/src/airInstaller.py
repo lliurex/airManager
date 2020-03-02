@@ -139,7 +139,7 @@ def _generate_epi_script(airInfo,air):
 #			if not retCode:
 
 			f.write("\t\techo %s\n"%air)
-			f.write("\t\tpkexec /usr/bin/air-helper-installer.py install %s %s\n"%(air,"null"))
+			f.write("\t\tpkexec /usr/bin/air-helper-installer.py install %s\n"%(air))
 #			else:
 #				f.write("\t\tRES=1\"\"\n")
 			f.write("\t\techo \"$?\"\n")
@@ -176,6 +176,8 @@ def _generate_epi_file(air):
 			if not retCode:
 				_debug("Launching %s"%epiJson)
 				subprocess.run(['epi-gtk',epiJson])
+				subprocess.check_output(["xdg-mime","install","/usr/share/mime/packages/x-air-installer.xml"])
+				subprocess.check_output(["xdg-mime","default","/usr/share/applications/air-installer.desktop","/usr/share/mime/packages/x-air-installer.xml"],input=b"")
 			else:
 				subprocess.run(['epi-gtk',"--error"])
 		else:
