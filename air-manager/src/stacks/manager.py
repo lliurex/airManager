@@ -121,7 +121,7 @@ class manager(confStack):
 		self._debug("manager load")
 		self.description=(_("Air Apps Manager"))
 		self.menu_description=(_("Manage air apps"))
-		self.icon=('dialog-password')
+		self.icon=('air-manager')
 		self.tooltip=(_("From here you can manage the air apps installed on your system"))
 		self.index=1
 		self.enabled=True

@@ -20,7 +20,7 @@ class installAir(confStack):
 		self._debug("installer load")
 		self.description=(_("Air Apps Installer"))
 		self.menu_description=(_("Install air apps"))
-		self.icon=('dialog-password')
+		self.icon=('air-installer')
 		self.tooltip=(_("From here you can manage the air apps installed on your system"))
 		self.index=2
 		self.enabled=True
