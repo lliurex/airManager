@@ -165,7 +165,8 @@ class manager(confStack):
 			self.lst_airApps.setCellWidget(0,0,lbl)
 			cont+=1
 
-		self.lst_airApps.removeRow(cont)
+		while (cont<self.lst_airApps.rowCount()):
+			self.lst_airApps.removeRow(cont)
 		self.lst_airApps.resizeColumnsToContents()
 
 		return True

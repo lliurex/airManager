@@ -34,43 +34,7 @@ def _generate_install_dir():
 def _get_air_info(air):
 	global retCode
 	airInfo={}
-#	installDir=os.path.dirname(air)
-#	os.makedirs("%s/airDir"%installDir)
-#	os.chdir("%s/airDir"%installDir)
 	airInfo=installer.AirManager().get_air_info(air)
-#	_debug("Extract control")
-#	subprocess.run(['ar','x',deb])
-#	_debug("Uncompress control")
-#	try:
-#		if os.path.isfile("control.tar.xz"):
-#			subprocess.run(['tar','Jxf',"control.tar.xz"])
-#		elif os.path.isfile("control.tar.gz"):
-#			subprocess.run(['tar','zxf',"control.tar.gz"])
-#	except:
-#		_debug("Failed to uncompress deb")
-#		retCode=1
-#	if not retCode:
-#		#read control file
-#		f_lines=[]
-#		try:
-#			f=open("control","r")
-#			f_lines=f.readlines()
-#			f.close()
-#		except Exception as e:
-#			_debug("%s"%e)
-#			retCode=1
-#
-#		for line in f_lines:
-#			if line.startswith(" "):
-#				if oldKey in debInfo.keys():
-#					debInfo[oldKey]=("%s%s"%(debInfo[oldKey],line)).rstrip()
-#			else:
-#				key=line.split(":")[0]
-#				data=" ".join(line.split(" ")[1:]).rstrip()
-#				if key=='Description':
-#					data=data+"||"
-#				debInfo[key]=data
-#				oldKey=key
 	return (airInfo)
 #def _get_deb_info
 
@@ -82,7 +46,6 @@ def _begin_install_package(air):
 	else:
 		_debug("%s is an invalid file %s"%(air,mime.from_file(air)))
 		retCode=1
-
 #def _begin_install_package
 
 def _generate_epi_json(airInfo,air):
@@ -96,12 +59,10 @@ def _generate_epi_json(airInfo,air):
 		epiJson="%s/%s.epi"%(tmpDir,airInfo['name'].replace(" ","_"))
 		epiFile={}
 		epiFile["type"]="file"
-#		epiFile["pkg_list"]=[{"name":debInfo['Package'],'url_download':os.path.dirname(installFile),'version':{'all':debName}}]
 		epiFile["pkg_list"]=[{"name":airInfo['name'],'url_download':tmpDir,'version':{'all':airName}}]
 		epiFile["script"]={"name":"%s/install_script.sh"%tmpDir,'remove':True,'download':True}
 		epiFile["required_root"]=False
 		epiFile["required_dconf"]=True
-
 		try:
 			with open(epiJson,'w') as f:
 				json.dump(epiFile,f,indent=4)
@@ -136,12 +97,8 @@ def _generate_epi_script(airInfo,air):
 			f.write("\t\ttouch /tmp/abc\n")
 			f.write("\t\t;;\n")
 			f.write("\tinstallPackage)\n")
-#			if not retCode:
-
 			f.write("\t\techo %s\n"%air)
 			f.write("\t\tpkexec /usr/bin/air-helper-installer.py install %s\n"%(air))
-#			else:
-#				f.write("\t\tRES=1\"\"\n")
 			f.write("\t\techo \"$?\"\n")
 			f.write("\t\t;;\n")
 			f.write("\tgetInfo)\n")
@@ -175,19 +132,17 @@ def _generate_epi_file(air):
 			_generate_epi_script(airInfo,air)
 			if not retCode:
 				_debug("Launching %s"%epiJson)
+				subprocess.check_call(['/usr/bin/xhost','+'])
 				subprocess.run(['epi-gtk',epiJson])
+				subprocess.check_call(['/usr/bin/xhost','-'])
 				subprocess.check_output(["xdg-mime","install","/usr/share/mime/packages/x-air-installer.xml"])
 				subprocess.check_output(["xdg-mime","default","/usr/share/applications/air-installer.desktop","/usr/share/mime/packages/x-air-installer.xml"],input=b"")
 			else:
 				subprocess.run(['epi-gtk',"--error"])
 		else:
 			subprocess.run(['epi-gtk',"--error"])
-		#Remove tmp dir
-#		shutil.rmtree(installDir)
 	elif retCode:
 		subprocess.run(['epi-gtk',"--error"])
-#def generate_epi_file
 installFile=sys.argv[1]
 _begin_install_package(installFile)
-
 
