@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-09 10:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../air-manager/src/stacks/installAir.py:21
+msgid "Air Apps Installer"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:22
+msgid "Install air apps"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:24
+#: ../air-manager/src/stacks/manager.py:125
+msgid "From here you can manage the air apps installed on your system"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:43
+msgid "Air file"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:45
+msgid "Choose file for install"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:55
+msgid "App name"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:57
+msgid "Push for icon change"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:61
+msgid "Application name"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:63
+msgid "App description"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:65
+msgid "Application description"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:113
+#, python-format
+msgid "App %s installed succesfully"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:38
+msgid "Remove"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:122
+msgid "Air Apps Manager"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:123
+msgid "Manage air apps"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:163
+msgid "There's no app installed"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:203
+#, python-format
+msgid "App %s uninstalled"
+msgstr ""
