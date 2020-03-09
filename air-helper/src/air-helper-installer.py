@@ -32,7 +32,11 @@ if sys.argv[1]=='install':
 		subprocess.check_call(['gtk-update-icon-cache','/usr/share/icons/hicolor/'])
 	except:
 		err=1
-	os.remove(iconFile)
+	if os.path.isfile(iconFile):
+		try:
+			os.remove(iconFile)
+		except:
+			_debug("%s not found for remove")
 elif sys.argv[1]=='remove':
 	airFile=sys.argv[2]
 	air_pkg={}
