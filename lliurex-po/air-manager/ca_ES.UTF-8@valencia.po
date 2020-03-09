@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 14:51+0100\n"
-"PO-Revision-Date: 2019-02-25 14:53+0100\n"
+"POT-Creation-Date: 2020-03-09 10:27+0100\n"
+"PO-Revision-Date: 2020-03-09 11:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca_ES\n"
@@ -18,80 +18,115 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../air-manager/rsrc/air-manager.ui:23
-msgid "Processing file..."
-msgstr "Està treballant..."
+#: ../air-manager/src/stacks/installAir.py:21
+msgid "Air Apps Installer"
+msgstr ""
 
-#: ../air-manager/src/air_manager.py:51
-msgid "Install"
+#: ../air-manager/src/stacks/installAir.py:22
+#, fuzzy
+#| msgid "Install"
+msgid "Install air apps"
 msgstr "Instal·la"
 
-#: ../air-manager/src/air_manager.py:60
-msgid "Manage"
-msgstr "Administra"
-
-#: ../air-manager/src/InstallBox.py:78
-msgid ""
-"<b>Drag</b> an air file\n"
-"or <b>click</b> to choose"
+#: ../air-manager/src/stacks/installAir.py:24
+#: ../air-manager/src/stacks/manager.py:125
+msgid "From here you can manage the air apps installed on your system"
 msgstr ""
-"<b>arrossega</b> un fitxer air\n"
-"o <b>clic</b> per a seleccionar"
 
-#: ../air-manager/src/InstallBox.py:89
-msgid ""
-"Click to <b>select an icon</b> for the app or use the app's default icon"
+#: ../air-manager/src/stacks/installAir.py:43
+msgid "Air file"
 msgstr ""
-"Fes clic per a <b>seleccionar una icona</b> per a l'aplicació o utilitza la "
-"seua icona per defecte"
 
-#: ../air-manager/src/InstallBox.py:125
-msgid "Select air package"
-msgstr "Selecciona un air"
-
-#: ../air-manager/src/InstallBox.py:137 ../air-manager/src/InstallBox.py:287
-#, python-format
-msgid ""
-"<b>Selected app:</b>\n"
-"%s"
+#: ../air-manager/src/stacks/installAir.py:45
+msgid "Choose file for install"
 msgstr ""
-"<b>Aplicació seleccionada:</b>\n"
-"%s"
 
-#: ../air-manager/src/InstallBox.py:160
-msgid "Select icon"
-msgstr "Selecciona icona"
+#: ../air-manager/src/stacks/installAir.py:55
+msgid "App name"
+msgstr ""
 
-#: ../air-manager/src/InstallBox.py:340
-msgid "Installation successful"
-msgstr "Instal·lació correcta"
+#: ../air-manager/src/stacks/installAir.py:57
+msgid "Push for icon change"
+msgstr ""
 
-#: ../air-manager/src/InstallBox.py:343
-msgid "Error: File with incorret extension .air is required"
-msgstr "Error: Fitxer amb extensió incorrecta. Ha de ser .air"
+#: ../air-manager/src/stacks/installAir.py:61
+msgid "Application name"
+msgstr ""
 
-#: ../air-manager/src/InstallBox.py:346
-msgid "Error: Unable to detect file extension"
-msgstr "Error: No es pot determinar l'extensió"
+#: ../air-manager/src/stacks/installAir.py:63
+msgid "App description"
+msgstr ""
 
-#: ../air-manager/src/InstallBox.py:349 ../air-manager/src/InstallBox.py:352
-#: ../air-manager/src/InstallBox.py:354 ../air-manager/src/InstallBox.py:357
-#: ../air-manager/src/InstallBox.py:360 ../air-manager/src/InstallBox.py:363
-#: ../air-manager/src/InstallBox.py:366 ../air-manager/src/InstallBox.py:369
-#: ../air-manager/src/InstallBox.py:372
-msgid "Error: Unknown"
-msgstr "Error: Desconegut"
+#: ../air-manager/src/stacks/installAir.py:65
+msgid "Application description"
+msgstr ""
 
-#: ../air-manager/src/ManageBox.py:42
-msgid "Removing file..."
-msgstr "S'està suprimint el fitxer..."
-
-#: ../air-manager/src/ManageBox.py:102
+#: ../air-manager/src/stacks/installAir.py:113
 #, python-format
-msgid "Remove %s"
-msgstr "Desinstalar %s"
+msgid "App %s installed succesfully"
+msgstr "%s instal·lada"
 
-#: ../air-manager/src/ManageBox.py:110
+#: ../air-manager/src/stacks/manager.py:38
+msgid "Remove"
+msgstr "Desinstalar"
+
+#: ../air-manager/src/stacks/manager.py:122
+msgid "Air Apps Manager"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:123
+msgid "Manage air apps"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:163
+msgid "There's no app installed"
+msgstr ""
+
+#: ../air-manager/src/stacks/manager.py:203
 #, python-format
-msgid "Run %s"
-msgstr "Executar %s"
+msgid "App %s uninstalled"
+msgstr ""
+
+#~ msgid "Processing file..."
+#~ msgstr "Està treballant..."
+
+#~ msgid "Manage"
+#~ msgstr "Administra"
+
+#~ msgid ""
+#~ "<b>Drag</b> an air file\n"
+#~ "or <b>click</b> to choose"
+#~ msgstr ""
+#~ "<b>arrossega</b> un fitxer air\n"
+#~ "o <b>clic</b> per a seleccionar"
+
+#~ msgid "Click to <b>select an icon</b> for the app or use the app's default icon"
+#~ msgstr "Fes clic per a <b>seleccionar una icona</b> per a l'aplicació o utilitza la seua icona per defecte"
+
+#~ msgid "Select air package"
+#~ msgstr "Selecciona un air"
+
+#~ msgid ""
+#~ "<b>Selected app:</b>\n"
+#~ "%s"
+#~ msgstr ""
+#~ "<b>Aplicació seleccionada:</b>\n"
+#~ "%s"
+
+#~ msgid "Select icon"
+#~ msgstr "Selecciona icona"
+
+#~ msgid "Error: File with incorret extension .air is required"
+#~ msgstr "Error: Fitxer amb extensió incorrecta. Ha de ser .air"
+
+#~ msgid "Error: Unable to detect file extension"
+#~ msgstr "Error: No es pot determinar l'extensió"
+
+#~ msgid "Error: Unknown"
+#~ msgstr "Error: Desconegut"
+
+#~ msgid "Removing file..."
+#~ msgstr "S'està suprimint el fitxer..."
+
+#~ msgid "Run %s"
+#~ msgstr "Executar %s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 14:51+0100\n"
+"POT-Creation-Date: 2020-03-09 10:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,74 +17,69 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../air-manager/rsrc/air-manager.ui:23
-msgid "Processing file..."
+#: ../air-manager/src/stacks/installAir.py:21
+msgid "Air Apps Installer"
 msgstr ""
 
-#: ../air-manager/src/air_manager.py:51
-msgid "Install"
+#: ../air-manager/src/stacks/installAir.py:22
+msgid "Install air apps"
 msgstr ""
 
-#: ../air-manager/src/air_manager.py:60
-msgid "Manage"
+#: ../air-manager/src/stacks/installAir.py:24
+#: ../air-manager/src/stacks/manager.py:125
+msgid "From here you can manage the air apps installed on your system"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:78
-msgid ""
-"<b>Drag</b> an air file\n"
-"or <b>click</b> to choose"
+#: ../air-manager/src/stacks/installAir.py:43
+msgid "Air file"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:89
-msgid ""
-"Click to <b>select an icon</b> for the app or use the app's default icon"
+#: ../air-manager/src/stacks/installAir.py:45
+msgid "Choose file for install"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:125
-msgid "Select air package"
+#: ../air-manager/src/stacks/installAir.py:55
+msgid "App name"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:137 ../air-manager/src/InstallBox.py:287
+#: ../air-manager/src/stacks/installAir.py:57
+msgid "Push for icon change"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:61
+msgid "Application name"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:63
+msgid "App description"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:65
+msgid "Application description"
+msgstr ""
+
+#: ../air-manager/src/stacks/installAir.py:113
 #, python-format
-msgid ""
-"<b>Selected app:</b>\n"
-"%s"
+msgid "App %s installed succesfully"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:160
-msgid "Select icon"
+#: ../air-manager/src/stacks/manager.py:38
+msgid "Remove"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:340
-msgid "Installation successful"
+#: ../air-manager/src/stacks/manager.py:122
+msgid "Air Apps Manager"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:343
-msgid "Error: File with incorret extension .air is required"
+#: ../air-manager/src/stacks/manager.py:123
+msgid "Manage air apps"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:346
-msgid "Error: Unable to detect file extension"
+#: ../air-manager/src/stacks/manager.py:163
+msgid "There's no app installed"
 msgstr ""
 
-#: ../air-manager/src/InstallBox.py:349 ../air-manager/src/InstallBox.py:352
-#: ../air-manager/src/InstallBox.py:354 ../air-manager/src/InstallBox.py:357
-#: ../air-manager/src/InstallBox.py:360 ../air-manager/src/InstallBox.py:363
-#: ../air-manager/src/InstallBox.py:366 ../air-manager/src/InstallBox.py:369
-#: ../air-manager/src/InstallBox.py:372
-msgid "Error: Unknown"
-msgstr ""
-
-#: ../air-manager/src/ManageBox.py:42
-msgid "Removing file..."
-msgstr ""
-
-#: ../air-manager/src/ManageBox.py:102
+#: ../air-manager/src/stacks/manager.py:203
 #, python-format
-msgid "Remove %s"
-msgstr ""
-
-#: ../air-manager/src/ManageBox.py:110
-#, python-format
-msgid "Run %s"
+msgid "App %s uninstalled"
 msgstr ""

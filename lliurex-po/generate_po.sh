@@ -2,7 +2,7 @@
 
 MANAGER_PYTHON_FILES="../air-manager/src/*py"
 INSTALLER_PYTHON_FILES="../air-installer/src/*py" 
-UI_FILES="../air-manager/rsrc/*ui"
+UI_FILES="../air-manager/src/stacks/*py"
 
 mkdir -p air-manager/ air-installer/
 
