@@ -44,6 +44,9 @@ class airWidget(QWidget):
 		self.setStyleSheet(self._setCss())
 	#def __init__
 
+	def mouseDoubleClickEvent(self,*args):
+		self._executeAir()
+
 	def setIcon(self,icon):
 		qicon=None
 		if QtGui.QIcon.hasThemeIcon(icon):
@@ -117,7 +120,7 @@ class airWidget(QWidget):
 
 class manager(confStack):
 	def __init_stack__(self):
-		self.dbg=True
+		self.dbg=False
 		self._debug("manager load")
 		self.description=(_("Air Apps Manager"))
 		self.menu_description=(_("Manage air apps"))
