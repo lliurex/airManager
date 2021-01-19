@@ -1,3 +1,9 @@
+air-manager (2.1.1) bionic; urgency=medium
+
+  * Update translations
+
+ -- Juanma1980 <juanma1980@gmail.com>  Tue, 19 Jan 2021 11:16:10 +0100
+
 air-manager (2.1) bionic; urgency=medium
 
   * Double click executes an air
