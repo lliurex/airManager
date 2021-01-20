@@ -11,5 +11,5 @@
 export PYBUILD_NAME=air-manager
 
 %:
-	dh $@ --with llxsrc,python3,i18n --buildsystem pybuild
+	dh $@ --with llxsrc,python3 --buildsystem pybuild
 	
