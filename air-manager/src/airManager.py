@@ -11,6 +11,6 @@ config.setBanner('air-manager_banner.png')
 config.setBackgroundImage('drop_file.svg')
 config.setConfig(confDirs={'system':'/usr/share/airmanager','user':'%s/.config'%os.environ['HOME']},confFile="airmanager.conf")
 config.Show()
-config.setFixedSize(config.width(),config.height())
+config.resize(config.width()+60,config.height()+60)
 
 app.exec_()

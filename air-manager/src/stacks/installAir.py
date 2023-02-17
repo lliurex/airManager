@@ -6,7 +6,6 @@ from PySide2.QtWidgets import QApplication, QLabel, QWidget, QPushButton,QVBoxLa
 from PySide2 import QtGui
 from PySide2.QtCore import Qt,QSize
 from appconfig.appConfigStack import appConfigStack as confStack
-from edupals.ui import QAnimatedStatusBar
 import airmanager.airmanager as installer
 import tempfile
 from gi.repository import GdkPixbuf
@@ -65,7 +64,7 @@ class installAir(confStack):
 		self.inp_desc.setPlaceholderText(_("Application description"))
 		framebox.addWidget(self.inp_desc,3,0,1,2,Qt.AlignTop)
 		self.setLayout(box)
-		self.updateScreen()
+#		self.updateScreen()
 		return(self)
 	#def _load_screen
 
@@ -81,6 +80,7 @@ class installAir(confStack):
 				self.btn_icon.setIconSize(QSize(64,64))
 			name=air_info.get('name',os.path.basename(self.inp_file.text()))
 			self.inp_name.setText(name)
+			self.frame.setEnabled(True)
 		else:
 			self.inp_name.setText("")
 			self.inp_desc.setText("")
@@ -94,7 +94,6 @@ class installAir(confStack):
 		self.frame.setEnabled(True)
 		air=self.inp_file.text()
 		self._loadAppData(air)
-		return True
 	#def _udpate_screen
 	
 	def writeConfig(self):

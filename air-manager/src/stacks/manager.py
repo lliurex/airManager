@@ -7,7 +7,6 @@ from PySide2.QtWidgets import QApplication, QLabel, QWidget, QPushButton,QVBoxLa
 from PySide2 import QtGui
 from PySide2.QtCore import Qt,QSize,Signal
 from appconfig.appConfigStack import appConfigStack as confStack
-from edupals.ui import QAnimatedStatusBar
 import airmanager.airmanager as installer
 from app2menu import App2Menu
 
